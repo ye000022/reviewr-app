@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/index.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Reviewr App</title>
+</head>
+<body>
+    <section data-role="page" id="home" class="active-page">
+    <header>
+      <h1>List and Rating</h1>
+    </header>
+    <div class="content">
+        <p><button class="btnList">List and rating</button></p>
+        <p><button class="btnDtl">Detail of Review</button></p>
+    </div>
+    <div id="msg"></div>
+    <div data-href="#add" class="fab">+</div>
+  </section>
+  
+  <section data-role="page" id="feedback" class="">
+    <header>
+      <h1>Add a new review</h1>
+    </header>
+    <div class="content">
+        <p><input type="text" id="title" placeholder="title of movie"/></p>
+        <p><input type="text" id="detail" placeholder="Enter the review"/></p>
+        <script>
+window.onload = function(){
+
+  var star = document.getElementById("star");
+    var star_li = star.getElementsByTagName("li");
+    var star_word = document.getElementById("star_word");
+    var result = document.getElementById("result");
+    var i=0;
+    var j=0;
+    var len = star_li.length;
+    var word = ['Worst','Bad','So so',"Good","Very good"]
+    
+    for(i=0; i<len; i++){
+      star_li[i].index = i;
+        
+        star_li[i].onmouseover = function(){
+              star_word.style.display = "block";
+                star_word.innerHTML = word[this.index];
+                for(i=0; i<=this.index; i++){
+                  star_li[i].className = "act";
+                    
+                }
+        }
+
+        star_li[i].onmouseout = function(){
+              star_word.style.display = "none";
+                for(i=0; i<len; i++){
+                 star_li[i].className = "";
+                }
+        }
+        
+        star_li[i].onclick = function(){
+          result.innerHTML = (this.index+1);
+        }
+        
+
+    }
+
+}
+        </script>
+        <div class="wrapper">
+            Result 
+            <span id="result"></span>
+            <ul id="star">
+                <li>★</li>
+                <li>★</li>
+                <li>★</li>
+                <li>★</li>
+                <li>★</li>
+            </ul>
+            <div id="star_word">So so</div>
+
+        </div>  
+        <button id="takePhoto">Take Photo</button>
+        <button id="save">Save</button>
+        <div id = "titleOne"></div>
+        <div id = "text"></div>
+        <div id = "rating"></div>
+      <p><a data-href="#home" href="#home">Home</a></p>
+    </div>
+  </section>
+</body>
+</html>
