@@ -1,11 +1,11 @@
 var app = {
     METHOD: "POST",
     init: function(){
-        document.querySelector(".btnList").addEventListener("click", app.fetchList);
-        document.querySelector(".btnDtl").addEventListener("click", app.getDetail);
-        document.querySelector("#save").addEventListener("click",app.upload);
-        document.querySelector("#takePhoto").addEventListener("click",app.takePic);
-        document.querySelector(".fab").addEventListener("click",app.navigate);
+        document.querySelector(".btnList").addEventListener("tap", app.fetchList);
+        document.querySelector(".btnDtl").addEventListener("tap", app.getDetail);
+        document.querySelector("#save").addEventListener("tap",app.upload);
+        document.querySelector("#takePhoto").addEventListener("tap",app.takePic);
+        document.querySelector(".fab").addEventListener("tap",app.navigate);
     },
     fetchList:function(ev){ 
         ev.preventDefault();
